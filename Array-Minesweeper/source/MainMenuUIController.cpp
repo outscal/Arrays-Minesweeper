@@ -2,9 +2,13 @@
 #include "../header/GameService.h"
 #include "../header/GraphicService.h"
 #include "../header/SoundService.h"
+#include "../header/GameplayService.h"
 #include "../header/EventService.h"
 
-MainMenuUIController::MainMenuUIController() { game_window = nullptr; }
+MainMenuUIController::MainMenuUIController()
+{
+    game_window = nullptr;
+}
 
 void MainMenuUIController::initialize()
 {
@@ -53,11 +57,16 @@ void MainMenuUIController::scaleButton(sf::Sprite* button_to_scale)
 
 void MainMenuUIController::positionButtons()
 {
-    float x_position = (static_cast<float>(game_window->getSize().x) / 2) - button_width / 2;
+    float x_position = calculateLeftOffsetForButton();
 
-    play_button_sprite.setPosition({ x_position, 500.f });
-    instructions_button_sprite.setPosition({ x_position, 700.f });
-    quit_button_sprite.setPosition({ x_position, 900.f });
+    play_button_sprite.setPosition({ x_position, 400.f });
+    instructions_button_sprite.setPosition({ x_position, 600.f });
+    quit_button_sprite.setPosition({ x_position, 800.f });
+}
+
+float MainMenuUIController::calculateLeftOffsetForButton()
+{
+    return (static_cast<float>(game_window->getSize().x) / 2) - button_width / 2;
 }
 
 void MainMenuUIController::update()
@@ -68,6 +77,7 @@ void MainMenuUIController::update()
 void MainMenuUIController::render()
 {
     ServiceLocator::getInstance()->getGraphicService()->drawBackground();
+
     game_window->draw(play_button_sprite);
     game_window->draw(instructions_button_sprite);
     game_window->draw(quit_button_sprite);
@@ -81,22 +91,40 @@ void MainMenuUIController::handleButtonInteractions()
 
     if (clickedButton(&play_button_sprite, mouse_position))
     {
-        GameService::setGameState(GameState::GAMEPLAY);
-        ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
+        onClickPlayButton();
     }
 
     if (clickedButton(&instructions_button_sprite, mouse_position))
     {
-        printf("Clicked Instruction Button \n");
-        ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
+        onClickInstructionButton();
     }
 
     if (clickedButton(&quit_button_sprite, mouse_position))
-        game_window->close();
+    {
+        onClickQuitButton();
+    }
 }
 
 bool MainMenuUIController::clickedButton(sf::Sprite* button_sprite, sf::Vector2f mouse_position)
 {
     return ServiceLocator::getInstance()->getEventService()->pressedLeftMouseButton() &&
         button_sprite->getGlobalBounds().contains(mouse_position);
+}
+
+void MainMenuUIController::onClickPlayButton()
+{
+    ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
+    GameService::setGameState(GameState::GAMEPLAY);
+    ServiceLocator::getInstance()->getGameplayService()->startGame();
+}
+
+void MainMenuUIController::onClickInstructionButton()
+{
+    GameService::setGameState(GameState::INSTRUCTION);
+    ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
+}
+
+void MainMenuUIController::onClickQuitButton()
+{
+    game_window->close();
 }

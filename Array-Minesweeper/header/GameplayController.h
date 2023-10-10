@@ -9,9 +9,10 @@ class GameplayController
 private:
     static const int number_of_rows = 9;
     static const int number_of_colums = 9;
-    const int mines_count = 8;
 
-    const float max_move_time = 30.f;
+    const int mines_count = 8;
+    const float max_level_duration = 301.f;
+    const float restart_time = 11.f;
 
     const float cells_top_offset = 274.f;
     const float cells_left_offset = 583.f;
@@ -28,7 +29,11 @@ private:
     float cell_width;
     float cell_height;
 
-    float move_timer;
+    float remaining_time;
+    int flagged_cells;
+
+    bool b_first_click;
+    bool b_game_over;
 
     Cell* board[number_of_rows][number_of_colums];
 
@@ -52,6 +57,7 @@ private:
     float calculateBoardImageScaleFactor();
     void setBoardImagePosition();
     void initializeCellImage();
+    void initializeCells();
 
     void scaleCellImage();
     float calculateCellWidth();
@@ -61,12 +67,18 @@ private:
     bool isValidCellIndex(sf::Vector2i cellIndex);
     sf::Vector2i getCellFromMousePosition();
 
-    void drawAllCells();
-    void drawCell(int row, int col);
-    void flagCell(int x, int y);
     void openCell(int x, int y);
+    void flagCell(int x, int y);
+    void updateRemainingTimer();
+    void drawAllCells();
+    void openEmptyCells(int x, int y);
+    void openAllCells();
+    void populateBoard(int x, int y);
+    int countMinesAround(int x, int y);
+    void checkGameWinCondition();
+    void gameOver();
     void resetBoard();
-    void resetCell(int row, int col);
+    void resetVariables();
     void deleteBoard();
 
 public:
@@ -79,5 +91,5 @@ public:
 
 	void restart();
 	int getMinesCount();
-	float getRemainingTimer();
+	float getRemainingTime();
 };

@@ -135,31 +135,37 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="source\Cell.cpp" />
+    <ClCompile Include="source\CreditsScreenUIController.cpp" />
     <ClCompile Include="source\EventService.cpp" />
     <ClCompile Include="source\GameplayController.cpp" />
     <ClCompile Include="source\GameplayUIController.cpp" />
     <ClCompile Include="source\GameService.cpp" />
     <ClCompile Include="source\GraphicService.cpp" />
     <ClCompile Include="source\GameplayService.cpp" />
+    <ClCompile Include="source\InstructionsScreenUIController.cpp" />
     <ClCompile Include="source\MainMenuUIController.cpp" />
     <ClCompile Include="source\ServiceLocator.cpp" />
     <ClCompile Include="source\SoundService.cpp" />
     <ClCompile Include="source\SplashScreenUIController.cpp" />
+    <ClCompile Include="source\TimeService.cpp" />
     <ClCompile Include="source\UIService.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header\Cell.h" />
+    <ClInclude Include="header\CreditsScreenUIController.h" />
     <ClInclude Include="header\EventService.h" />
     <ClInclude Include="header\GameplayController.h" />
     <ClInclude Include="header\GameplayUIController.h" />
     <ClInclude Include="header\GameService.h" />
     <ClInclude Include="header\GraphicService.h" />
     <ClInclude Include="header\GameplayService.h" />
+    <ClInclude Include="header\InstructionsScreenUIController.h" />
     <ClInclude Include="header\IUIController.h" />
     <ClInclude Include="header\MainMenuUIController.h" />
     <ClInclude Include="header\ServiceLocator.h" />
     <ClInclude Include="header\SoundService.h" />
     <ClInclude Include="header\SplashScreenUIController.h" />
+    <ClInclude Include="header\TimeService.h" />
     <ClInclude Include="header\UIService.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
