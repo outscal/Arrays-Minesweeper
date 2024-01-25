@@ -1,7 +1,6 @@
 #pragma once
 #include <sfml/Graphics.hpp>
 #include "../../header/Gameplay/Cell/CellController.h"
-#include "../../header/Gameplay/Cell/CellController.h"
 #include "../../header/UI/UIElement/ButtonView.h"
 #include <random>
 

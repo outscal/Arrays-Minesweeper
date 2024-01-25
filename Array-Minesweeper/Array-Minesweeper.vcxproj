@@ -133,8 +133,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="header\Gameplay\Board\BoardService.h" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="source\Gameplay\Board\BoardController.cpp" />
+    <ClCompile Include="source\Gameplay\Board\BoardService.cpp" />
     <ClCompile Include="source\Gameplay\Board\BoardView.cpp" />
     <ClCompile Include="source\Gameplay\Cell\CellController.cpp" />
     <ClCompile Include="source\Gameplay\Cell\CellModel.cpp" />
