@@ -8,58 +8,58 @@ namespace Gameplay
 		using namespace UI;
 		using namespace UI::UIElement;
 
-		Gameplay::Board::BoardService::BoardService()
+		BoardService::BoardService()
 		{
 			board_controller = nullptr;
 		}
 
-		Gameplay::Board::BoardService::~BoardService()
+		BoardService::~BoardService()
 		{
 			destroy();
 		}
 
-		void Gameplay::Board::BoardService::initialize()
+		void BoardService::initialize()
 		{
 			board_controller = new BoardController();
 			board_controller->initialize();
 		}
 
-		void Gameplay::Board::BoardService::update()
+		void BoardService::update()
 		{
 			board_controller->update();
 		}
 
-		void Gameplay::Board::BoardService::render()
+		void BoardService::render()
 		{
 			board_controller->render();
 		}
 
-		void Gameplay::Board::BoardService::processCellInput(CellController* cell_controller, ButtonType button_type)
+		void BoardService::processCellInput(CellController* cell_controller, ButtonType button_type)
 		{
 			board_controller->processCellInput(cell_controller, button_type);
 		}
 
-		BoardState Gameplay::Board::BoardService::getBoardState()
+		BoardState BoardService::getBoardState()
 		{
 			return board_controller->getBoardState();
 		}
 
-		void Gameplay::Board::BoardService::setBoardState(BoardState state)
+		void BoardService::setBoardState(BoardState state)
 		{
 			board_controller->setBoardState(state);
 		}
 
-		void Gameplay::Board::BoardService::resetBoard()
+		void BoardService::resetBoard()
 		{
 			board_controller->reset();
 		}
 
-		int Gameplay::Board::BoardService::getMinesCount()
+		int BoardService::getMinesCount()
 		{
 			return board_controller->getMinesCount();
 		}
 
-		void Gameplay::Board::BoardService::destroy()
+		void BoardService::destroy()
 		{
 			delete(board_controller);
 		}
