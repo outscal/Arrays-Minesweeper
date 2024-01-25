@@ -10,7 +10,7 @@ namespace Gameplay
 
 		Gameplay::Board::BoardService::BoardService()
 		{
-			board_controller = new BoardController();
+			board_controller = nullptr;
 		}
 
 		Gameplay::Board::BoardService::~BoardService()
@@ -20,6 +20,7 @@ namespace Gameplay
 
 		void Gameplay::Board::BoardService::initialize()
 		{
+			board_controller = new BoardController();
 			board_controller->initialize();
 		}
 
