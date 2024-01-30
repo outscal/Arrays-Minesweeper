@@ -1,12 +1,10 @@
 #include "../../header/Event/EventService.h"
 #include "../../header/Global/ServiceLocator.h"
-#include "../../header/Main/GraphicService.h"
 #include <iostream>
 
 namespace Event
 {
     using namespace Global;
-    using namespace Main;
 
     EventService::EventService() { game_window = nullptr; }
 

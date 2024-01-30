@@ -1,6 +1,5 @@
 #include "../../header/UI/Instructions/InstructionsScreenUIController.h"
 #include "../../header/Main/GameService.h"
-#include "../../header/Main/GraphicService.h"
 #include "../../header/Sound/SoundService.h"
 #include "../../header/Event/EventService.h"
 #include "../../header/Global/Config.h"
