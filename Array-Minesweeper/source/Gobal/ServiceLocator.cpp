@@ -9,6 +9,7 @@ namespace Global
 	using namespace UI;
 	using namespace Gameplay;
 	using namespace Board;
+	using namespace Time;
 
 	ServiceLocator::ServiceLocator()
 	{
@@ -102,7 +103,7 @@ namespace Global
 
 	GameplayService* ServiceLocator::getGameplayService() { return gameplay_service; }
 
-	Global::TimeService* ServiceLocator::getTimeService() { return time_service; }
+	Time::TimeService* ServiceLocator::getTimeService() { return time_service; }
 
 	Board::BoardService* ServiceLocator::getBoardService()
 	{
