@@ -84,6 +84,8 @@ namespace Gameplay
 
 		void BoardController::processCellInput(Cell::CellController* cell_controller, UI::UIElement::ButtonType button_type)
 		{
+			if (board_state == BoardState::COMPLETED)
+				return;
 			switch (button_type)
 			{
 			case UI::UIElement::ButtonType::LEFT_MOUSE_BUTTON:
@@ -309,6 +311,7 @@ namespace Gameplay
 		void BoardController::onGameWon()
 		{
 			flagAllMines();
+			setBoardState(BoardState::COMPLETED);
 		}
 
 

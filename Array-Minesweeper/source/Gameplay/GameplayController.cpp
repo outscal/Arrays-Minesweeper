@@ -31,8 +31,6 @@ namespace Gameplay
 
     void GameplayController::processCellInput(CellController* cell_controller, ButtonType button_type)
     {
-        if (game_end_type == GameEndType::WON)
-            return;
         board_service->processCellInput(cell_controller, button_type);
     }
 
@@ -76,8 +74,7 @@ namespace Gameplay
 
     void GameplayController::gameWon()
     {
-        game_end_type = GameEndType::WON;
-        board_service->setBoardState(BoardState::COMPLETED);
+        game_end_type = GameEndType::WON; //--------------------------------------------------------USELESS
         ServiceLocator::getInstance()->getTimeService()->setPauseTimer(true);
         board_service->onGameWon();
     }
@@ -102,9 +99,6 @@ namespace Gameplay
     {
         if (board_service->areAllCellOpen())
         {
-            /*board_service->setBoardState(BoardState::COMPLETED);
-            ServiceLocator::getInstance()->getTimeService()->setPauseTimer();
-            board_service->onGameWon();*/
             gameWon();
         }
     }
