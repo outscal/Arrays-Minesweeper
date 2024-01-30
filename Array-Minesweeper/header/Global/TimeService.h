@@ -19,6 +19,7 @@ namespace Global
 		std::chrono::time_point<std::chrono::steady_clock> previous_time;
 
 		float delta_time;
+		bool isTimerPause;
 
 		void updateDeltaTime();
 		float calculateDeltaTime();
@@ -30,5 +31,7 @@ namespace Global
 		void update();
 
 		float getDeltaTime();
+
+		void setPauseTimer(bool newPause);
 	};
 }

@@ -12,37 +12,56 @@ namespace Gameplay
     using namespace Cell;
     using namespace UI::UIElement;
 
-    GameplayController::~GameplayController() {  }
+    GameplayController::~GameplayController() { board_service = nullptr; }
 
-    void GameplayController::initialize() {  }
+    void GameplayController::initialize() 
+    {
+        board_service = ServiceLocator::getInstance()->getBoardService();
+    }
 
     void GameplayController::update()
     {
         updateRemainingTime();
-        if (isTimeOver()) processGameOver();
+
+        if (isTimeOver())
+            processTimerOver();
     }
 
     void GameplayController::render() {  }
 
-    void GameplayController::processCellInput(CellController* cell_controller, ButtonType button_type) 
+    void GameplayController::processCellInput(CellController* cell_controller, ButtonType button_type)
     {
-        ServiceLocator::getInstance()->getBoardService()->processCellInput(cell_controller, button_type);
+        if (game_end_type == GameEndType::WON)
+            return;
+        board_service->processCellInput(cell_controller, button_type);
     }
 
-    void GameplayController::processGameOver()
+    void GameplayController::processTimerOver()
     {
-        switch (ServiceLocator::getInstance()->getBoardService()->getBoardState())
+        switch (board_service->getBoardState())
         {
-        case BoardState::GAME_OVER:
-            GameService::setGameState(GameState::CREDITS);
+        case Gameplay::Board::BoardState::FIRST_CELL:
+            beginGameOverTimer();
+            break;
+        case Gameplay::Board::BoardState::PLAYING:
+            beginGameOverTimer();
+            break;
+        case Gameplay::Board::BoardState::COMPLETED:
+            gameOver();
             break;
         default:
-            gameOver();
             break;
         }
     }
 
-    void GameplayController::updateRemainingTime() 
+    void GameplayController::beginGameOverTimer()
+    {
+        remaining_time = restart_time;
+        board_service->onBeginGameOverTimer();
+        board_service->setBoardState(BoardState::COMPLETED);
+    }
+
+    void GameplayController::updateRemainingTime()
     {
         remaining_time -= ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
     }
@@ -51,17 +70,47 @@ namespace Gameplay
 
     void GameplayController::gameOver()
     {
-        remaining_time = restart_time;
-        ServiceLocator::getInstance()->getBoardService()->setBoardState(BoardState::GAME_OVER);
+        game_end_type = GameEndType::OVER; //--------------------------------------------------------USELESS
+        GameService::setGameState(GameState::CREDITS);
     }
 
-    void GameplayController::restart() 
-    { 
-        ServiceLocator::getInstance()->getBoardService()->resetBoard();
+    void GameplayController::gameWon()
+    {
+        game_end_type = GameEndType::WON;
+        board_service->setBoardState(BoardState::COMPLETED);
+        ServiceLocator::getInstance()->getTimeService()->setPauseTimer(true);
+        board_service->onGameWon();
+    }
+
+
+
+
+
+    void GameplayController::restart()
+    {
+        game_end_type = GameEndType::NONE;
+        board_service->resetBoard();
         remaining_time = max_level_duration;
+        ServiceLocator::getInstance()->getTimeService()->setPauseTimer(false);
     }
 
-    int GameplayController::getMinesCount() { return ServiceLocator::getInstance()->getBoardService()->getMinesCount(); }
+    int GameplayController::getMinesCount() { return board_service->getMinesCount(); }
 
     float GameplayController::getRemainingTime() { return remaining_time; }
+    
+    void GameplayController::onCellOpen()
+    {
+        if (board_service->areAllCellOpen())
+        {
+            /*board_service->setBoardState(BoardState::COMPLETED);
+            ServiceLocator::getInstance()->getTimeService()->setPauseTimer();
+            board_service->onGameWon();*/
+            gameWon();
+        }
+    }
+
+    void GameplayController::onBlast()
+    {
+        beginGameOverTimer();
+    }
 }

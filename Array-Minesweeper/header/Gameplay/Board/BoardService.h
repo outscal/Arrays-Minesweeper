@@ -29,6 +29,9 @@ namespace Gameplay
             void resetBoard();
 
             int getMinesCount();
+            bool areAllCellOpen();
+            void onBeginGameOverTimer();
+            void onGameWon();
         };
     }
 }

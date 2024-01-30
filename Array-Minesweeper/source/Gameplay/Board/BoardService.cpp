@@ -59,10 +59,27 @@ namespace Gameplay
 			return board_controller->getMinesCount();
 		}
 
+		bool BoardService::areAllCellOpen()
+		{
+			return board_controller->areAllCellOpen();
+		}
+
+		void BoardService::onBeginGameOverTimer()
+		{
+			board_controller->onBeginGameOverTimer();
+		}
+
+		void BoardService::onGameWon()
+		{
+			board_controller->onGameWon();
+		}
+
 		void BoardService::destroy()
 		{
 			delete(board_controller);
 		}
+
+		
 
 
 	}
