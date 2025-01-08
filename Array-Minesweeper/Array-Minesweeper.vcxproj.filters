@@ -72,6 +72,9 @@
     <ClCompile Include="source\GamePlay\Board\BoardService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\GamePlay\Board\BoardView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header\Global\ServiceLocator.h">
@@ -132,6 +135,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="header\GamePlay\Board\CellController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\GamePlay\Board\BoardView.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
