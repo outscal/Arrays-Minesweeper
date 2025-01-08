@@ -8,16 +8,31 @@ namespace Gameplay
 
 
 		class BoardController;
+	
 		class BoardView {
 		private:
 			BoardController* board_controller;
-			ImageView* board_Image;
+
+			//background characterstics
+			ImageView* backgroundImage;
+			const float background_alpha = 85.f;
+
+			// board characterstics
+
+			ImageView* boardImage;
+			const float board_width = 866.f;
+			const float board_height = 1080.f;
+
+
+			void CreateBackGroundImages();
+			void CreateBoardImage();
 		public:
 			BoardView(BoardController* controller);
 			~BoardView();
-			void CreateImage();
-			void CreateSetUpImages();
 			
+			void initialize();
+			void update();
+			void render();
 		};
 	}
 }

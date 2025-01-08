@@ -13,17 +13,27 @@ namespace Gameplay
 		void BoardController::Destroy()
 		{
 		}
+		BoardController::BoardController()
+		{
+			boardView = new BoardView(this);
+		}
 		void BoardController::initialize()
 		{
+			boardView->initialize();
 		}
 		void BoardController::Update()
 		{
+			boardView->update();
 		}
 		void BoardController::Render()
 		{
 		}
 		void BoardController::Reset()
 		{
+		}
+		BoardController::~BoardController()
+		{
+			delete(boardView);
 		}
 	}
 }

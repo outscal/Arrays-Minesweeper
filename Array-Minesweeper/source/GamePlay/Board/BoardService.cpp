@@ -8,6 +8,7 @@ namespace Gameplay
 		BoardService::BoardService()
 		{
 			boardController = nullptr;
+			boardController = new BoardController();
 			
 		}
 		BoardService::~BoardService()
@@ -16,7 +17,7 @@ namespace Gameplay
 		}
 		void BoardService::Intialize()
 		{
-			boardController = new BoardController();
+			
 			boardController->initialize();
 		}
 		void BoardService::Update()
