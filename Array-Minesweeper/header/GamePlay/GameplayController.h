@@ -10,6 +10,7 @@ public:
 	void  intialize();
 	void Update();
 	void Render();
+	void Reset();
 };
 
 
