@@ -7,7 +7,6 @@ namespace Global
 	using namespace Sound;
 	using namespace UI;
 	using namespace Gameplay::Board;
-	using namespace Gameplay;
 	using namespace Main;
 
 	ServiceLocator::ServiceLocator()

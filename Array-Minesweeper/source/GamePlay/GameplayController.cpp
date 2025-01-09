@@ -1,4 +1,4 @@
-#include"../../header/GamePlay/Board/GameplayController.h"
+#include"../../header/GamePlay/GameplayController.h"
 using namespace Global;
 namespace Gameplay
 {

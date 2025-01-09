@@ -1,10 +1,10 @@
 #pragma once
-#include"../../header/GamePlay/Board/GameplayController.h"
+#include"../../header/GamePlay/GameplayController.h"
 namespace Gameplay
 {
 	class GameplayService{
 	private:
-		GameplayController* gameplayController;
+		GameplayController * gameplayController;
 	public:
 		GameplayService();
 		void Intialize();

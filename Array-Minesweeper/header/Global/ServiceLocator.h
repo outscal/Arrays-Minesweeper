@@ -4,8 +4,8 @@
 #include "../../header/UI/UIService.h"
 #include "../../header/Sound/SoundService.h"
 #include"../../header/GamePlay/Board/BoardService.h"
-#include"../../header/GamePlay/Board/GameplayService.h"
-
+#include"../../header/GamePlay/GameplayService.h"
+using namespace Gameplay;
 namespace Global
 {
     class ServiceLocator
@@ -16,7 +16,7 @@ namespace Global
         Sound::SoundService* sound_service;
         UI::UIService* ui_service;
         Gameplay::Board::BoardService* board_service;
-        Gameplay::GameplayService* gamePlayService;
+        GameplayService * gamePlayService;
 
         ServiceLocator();
         ~ServiceLocator();
@@ -36,7 +36,7 @@ namespace Global
         Sound::SoundService* getSoundService();
         UI::UIService* getUIService();
         Gameplay::Board::BoardService* getBoardService();
-        Gameplay::GameplayService* getGameplayService();
+        GameplayService * getGameplayService();
         void deleteServiceLocator();
     };
 }
