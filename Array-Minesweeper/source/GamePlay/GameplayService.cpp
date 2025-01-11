@@ -8,18 +8,18 @@ namespace Gameplay
 	}
 	void GameplayService::Intialize()
 	{
-		gameplayController->intialize();
+		gameplayController->Intialize();
 	}
 	void GameplayService::Update()
 	{
-		gameplayController->Update();
+		gameplayController->update();
 	}
 	void GameplayService::Render()
 	{
-		gameplayController->Render();
+		gameplayController->render();
 	}
 	void GameplayService::StartGame()
 	{
-		gameplayController->Reset();
+		gameplayController->reset();
 	}
 }

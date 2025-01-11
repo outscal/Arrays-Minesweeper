@@ -1,19 +1,21 @@
 #include"../../header/GamePlay/GameplayController.h"
-using namespace Global;
-namespace Gameplay
-{
-	
-	void GameplayController::intialize()
+namespace Gameplay{
+	GameplayController::GameplayController()
 	{
 	}
-	void GameplayController::Update()
+	void GameplayController::Intialize()
 	{
 	}
-	void GameplayController::Render()
+	void GameplayController::update()
 	{
 	}
-	void GameplayController::Reset()
+	void GameplayController::render()
 	{
-		ServiceLocator::getInstance()->getBoardService()->ResetBoard();
+	}
+	void GameplayController::reset()
+	{
+	}
+	GameplayController::~GameplayController()
+	{
 	}
 }

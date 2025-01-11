@@ -27,6 +27,7 @@ namespace Gameplay
 		}
 		void BoardController::Render()
 		{
+			boardView->render();
 		}
 		void BoardController::Reset()
 		{

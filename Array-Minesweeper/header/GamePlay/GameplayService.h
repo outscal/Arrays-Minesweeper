@@ -4,7 +4,7 @@ namespace Gameplay
 {
 	class GameplayService{
 	private:
-		GameplayController * gameplayController;
+		GameplayController* gameplayController;
 	public:
 		GameplayService();
 		void Intialize();

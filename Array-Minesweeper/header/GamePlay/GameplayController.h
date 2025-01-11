@@ -1,17 +1,14 @@
 #pragma once
-#include"../../header/Global/ServiceLocator.h"
-namespace Gameplay
-{
-class GameplayController{
-private:
+namespace Gameplay {
 
-public:
+	class GameplayController {
 
-	void  intialize();
-	void Update();
-	void Render();
-	void Reset();
+	public:
+		GameplayController();
+		void Intialize();
+		void update();
+		void render();
+		void reset();
+		~GameplayController();
 };
-
-
 }
