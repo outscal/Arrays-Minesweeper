@@ -1,6 +1,7 @@
 #include"../../header/GamePlay/Cell/CellView.h"
 #include"../../header/Global/Config.h"
 #include"../../header/GamePlay/Cell/CellController.h"
+#include"../../header/GamePlay/Cell/CellModel.h"
 using namespace Global;
 using namespace UI::UIElement;
 using namespace sf;
@@ -27,11 +28,28 @@ namespace Gameplay
 		
 		void CellView::Update()
 		{
+			SetTexture();
 			cellButton->update();
 		}
 		void CellView::Render()
 		{
 			cellButton->render();
+		}
+		void CellView::SetTexture()
+		{
+			int index = static_cast<int>(cellController->GetCellValue());
+
+			switch (cellController->GetCellState()) {
+			case::Gameplay::Cell::CellState::HIDDEN:
+				cellButton->setTextureRect(sf::IntRect(10 * tile_size, 0, tile_size, tile_size));
+				break;
+			case::Gameplay::Cell::CellState::OPEN:
+				cellButton->setTextureRect(sf::IntRect(index * tile_size, 0, tile_size, tile_size));
+				break;
+				case::Gameplay::Cell::CellState::FLAGGED:
+					cellButton->setTextureRect(sf::IntRect(11 * tile_size, 0, tile_size, tile_size));
+					break;
+			}
 		}
 		CellView::~CellView()
 		{

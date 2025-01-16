@@ -167,6 +167,7 @@
     <ClInclude Include="header\GamePlay\Cell\CellController.h" />
     <ClInclude Include="header\GamePlay\Cell\CellModel.h" />
     <ClInclude Include="header\GamePlay\Cell\CellView.h" />
+    <ClInclude Include="header\GamePlay\GameplayController.h" />
     <ClInclude Include="header\GamePlay\GameplayService.h" />
     <ClInclude Include="header\Main\GameService.h" />
     <ClInclude Include="header\Global\Config.h" />

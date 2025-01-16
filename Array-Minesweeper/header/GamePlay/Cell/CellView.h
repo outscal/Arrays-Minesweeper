@@ -20,6 +20,7 @@ namespace Gameplay
 			void initializeButtonImage(float width, float height);
 			void Update();
 			void Render();
+			void SetTexture();
 			~CellView();
 
 

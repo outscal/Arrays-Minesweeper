@@ -164,5 +164,8 @@
     <ClInclude Include="header\GamePlay\Cell\CellView.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="header\GamePlay\GameplayController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
