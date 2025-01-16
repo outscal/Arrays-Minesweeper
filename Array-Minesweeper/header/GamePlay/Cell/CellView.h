@@ -12,6 +12,7 @@ namespace Gameplay
 			UI::UIElement::ButtonView* cellButton;
 			CellController* cellController ;
 			int tile_size = 32;
+			int sliceCount = 12;
 		public:
 
 			CellView(CellController* cellController);
