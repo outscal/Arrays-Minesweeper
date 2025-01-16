@@ -44,6 +44,7 @@ namespace Gameplay
 		}
 		void BoardController::Reset()
 		{
+			cell->reset();
 		}
 		BoardController::~BoardController()
 		{

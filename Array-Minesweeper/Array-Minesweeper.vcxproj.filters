@@ -155,9 +155,6 @@
     <ClInclude Include="header\GamePlay\GameplayService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\GamePlay\GameplayController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="header\GamePlay\Cell\CellController.h">
       <Filter>Header Files</Filter>
     </ClInclude>

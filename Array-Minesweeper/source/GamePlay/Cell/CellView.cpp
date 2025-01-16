@@ -1,6 +1,6 @@
 #include"../../header/GamePlay/Cell/CellView.h"
 #include"../../header/Global/Config.h"
-//#include"../../header/GamePlay/Cell/CellController.h"
+#include"../../header/GamePlay/Cell/CellController.h"
 using namespace Global;
 using namespace UI::UIElement;
 using namespace sf;
