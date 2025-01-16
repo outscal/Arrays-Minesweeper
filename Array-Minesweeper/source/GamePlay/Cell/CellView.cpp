@@ -1,11 +1,15 @@
 #include"../../header/GamePlay/Cell/CellView.h"
 #include"../../header/Global/Config.h"
+//#include"../../header/GamePlay/Cell/CellController.h"
 using namespace Global;
 using namespace UI::UIElement;
 using namespace sf;
+class  CellController;
 namespace Gameplay
 {
+
 	namespace Cell
+		
 	{
 		CellView::CellView(CellController* Controller)
 		{
@@ -31,7 +35,7 @@ namespace Gameplay
 		}
 		CellView::~CellView()
 		{
-			delete(cellButton);
+			delete cellButton;
 		}
 	}
 }

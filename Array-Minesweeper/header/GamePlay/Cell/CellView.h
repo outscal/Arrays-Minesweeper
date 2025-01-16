@@ -6,7 +6,7 @@ namespace Gameplay
 	namespace Cell
 	{
 
-		class CellController;
+		class  CellController;
 		class CellView {
 		private:
 			UI::UIElement::ButtonView* cellButton;

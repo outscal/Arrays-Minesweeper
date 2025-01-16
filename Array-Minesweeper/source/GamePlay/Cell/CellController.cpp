@@ -1,5 +1,6 @@
 #include"../../header/GamePlay/Cell/CellController.h"
 #include"../../header/GamePlay/Cell/CellView.h"
+
 namespace Gameplay
 {
 	namespace Cell

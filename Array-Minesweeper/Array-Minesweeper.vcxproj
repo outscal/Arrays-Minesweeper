@@ -137,10 +137,12 @@
     <ClCompile Include="source\GamePlay\Board\BoardService.cpp" />
     <ClCompile Include="source\GamePlay\Board\BoardView.cpp" />
     <ClCompile Include="source\GamePlay\Cell\CellController.cpp" />
+    <ClCompile Include="source\GamePlay\Cell\CellModel.cpp" />
+    <ClCompile Include="source\GamePlay\Cell\CellView.cpp" />
     <ClCompile Include="source\GamePlay\GameplayController.cpp" />
     <ClCompile Include="source\GamePlay\GameplayService.cpp" />
     <ClCompile Include="source\UI\Instructions\InstructionsScreenUIController.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\Event\EventService.cpp" />
     <ClCompile Include="source\Main\GameService.cpp" />
     <ClCompile Include="source\Gobal\Config.cpp" />
@@ -183,8 +185,6 @@
     <ClInclude Include="header\UI\UIElement\UIView.h" />
     <ClInclude Include="header\UI\UIService.h" />
     <ClInclude Include="header\UI\Instructions\InstructionsScreenUIController.h" />
-    <ClInclude Include="source\GamePlay\Cell\CellModel.cpp" />
-    <ClInclude Include="source\GamePlay\Cell\CellView.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
