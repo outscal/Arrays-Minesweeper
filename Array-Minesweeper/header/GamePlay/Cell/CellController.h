@@ -17,7 +17,7 @@ namespace Gameplay
 			CellController();
 			~CellController();
 
-			void initialize();
+			void initialize(float cellWidth,float cellHeight);
 			void update();
 			void render();
 			void reset();

@@ -9,9 +9,7 @@ namespace Gameplay
 	{
 		class BoardController {
 		private:
-			static const int NumberOfRows = 9;
-			static const int NumberOFColums = 9;
-			static const int NumberOFMines = 8;
+		
 			Cell::CellController* cell;
 			BoardView* boardView;
 			void CreateBoards();
@@ -20,11 +18,15 @@ namespace Gameplay
 			void resetBoard();
 
 		public:
+			static const int NumberOfRows = 9;
+			static const int NumberOFColums = 9;
+			static const int NumberOFMines = 8;
 			BoardController();
 			void initialize();
 			void Update();
 			void Render();
 			void Reset();
+			void intializeCell();
 			~BoardController();
 		};
 

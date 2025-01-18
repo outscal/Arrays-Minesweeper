@@ -13,6 +13,8 @@ namespace Gameplay
 			CellController* cellController ;
 			int tile_size = 32;
 			int sliceCount = 12;
+			const float cellTopOffset = 274.f;
+			const float cellLeftOffset = 583.f;
 		public:
 
 			CellView(CellController* cellController);
@@ -21,6 +23,7 @@ namespace Gameplay
 			void Update();
 			void Render();
 			void SetTexture();
+			sf::Vector2f GetCellScreenPosition();
 			~CellView();
 
 

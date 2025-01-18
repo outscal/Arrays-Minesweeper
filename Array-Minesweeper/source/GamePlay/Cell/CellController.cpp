@@ -20,10 +20,10 @@ namespace Gameplay
 		{
 			destroy();
 		}
-		void CellController::initialize()
+		void CellController::initialize(float cellWidth, float cellHeight)
 		{
 
-			cellView->Intialize(32,32);
+			cellView->Intialize(cellWidth,cellHeight);
 		}
 		void CellController::update()
 		{

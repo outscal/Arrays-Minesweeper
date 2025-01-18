@@ -29,8 +29,9 @@ namespace Gameplay
 		}
 		void BoardController::initialize()
 		{
+			intializeCell();
 			boardView->initialize();
-			cell->initialize();
+			
 		}
 		void BoardController::Update()
 		{
@@ -45,6 +46,12 @@ namespace Gameplay
 		void BoardController::Reset()
 		{
 			cell->reset();
+		}
+		void BoardController::intializeCell()
+		{
+			float cellWidth = boardView->GetCellWidth();
+			float cellHeight = boardView->GetCellHeight();
+			cell->initialize(cellWidth,cellHeight);
 		}
 		BoardController::~BoardController()
 		{
