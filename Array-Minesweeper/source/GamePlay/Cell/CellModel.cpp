@@ -6,6 +6,10 @@ namespace Gameplay
 	namespace Cell
 	{
         using namespace sf;
+        CellModel::CellModel(int index)
+        {
+            this->cellIndex = index;
+        }
         CellState CellModel::GetCellState()
         {
             return cellState;
@@ -34,6 +38,13 @@ namespace Gameplay
         {
            cellState = CellState::HIDDEN;
            cellValue = CellValue::EMPTY;
+        }
+        int CellModel::GetCellIndex()
+        {
+            return cellIndex;
+        }
+        CellModel::~CellModel()
+        {
         }
     }
 }
