@@ -11,10 +11,10 @@ namespace Gameplay
 			delete(cellView);
 			delete(cellModel);
 		}
-		CellController::CellController()
+		CellController::CellController(int index)
 		{
 			cellView = new CellView(this);
-			cellModel = new CellModel();
+			cellModel = new CellModel(index);
 		}
 		CellController::~CellController()
 		{
@@ -48,6 +48,10 @@ namespace Gameplay
 		sf::Vector2i CellController::GetCellPosition()
 		{
 			return cellModel->GetPosition();
+		}
+		int CellController::GetCellIndex()
+		{
+			return cellModel->GetCellIndex();
 		}
 	}
 }

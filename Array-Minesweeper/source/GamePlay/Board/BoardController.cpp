@@ -8,11 +8,15 @@ namespace Gameplay
 		using namespace Gameplay::Cell;
 		void BoardController::CreateBoards()
 		{
-			cell = new CellController();
+			for (int i = 0; i < NumberOFColums; i++) {
+				cells[i] = new CellController(i);
+			}
 		}
 		void BoardController::DeleteBoard()
 		{
-			delete(cell);
+			for (int i = 0; i < NumberOFColums; i++) {
+				delete(cells[i]);
+			}
 		}
 		void BoardController::Destroy()
 		{
@@ -36,22 +40,30 @@ namespace Gameplay
 		void BoardController::Update()
 		{
 			boardView->update();
-			cell->update();
+			for (int i = 0; i < NumberOFColums; i++) {
+				cells[i]->update();
+			}
 		}
 		void BoardController::Render()
 		{
 			boardView->render();
-			cell->render();
+			for (int i = 0; i < NumberOFColums; i++) {
+				cells[i]->render();
+			}
 		}
 		void BoardController::Reset()
 		{
-			cell->reset();
+			for (int i = 0; i < NumberOFColums; i++) {
+				cells[i]->reset();
+			}
 		}
 		void BoardController::intializeCell()
 		{
 			float cellWidth = boardView->GetCellWidth();
 			float cellHeight = boardView->GetCellHeight();
-			cell->initialize(cellWidth,cellHeight);
+			for (int i = 0; i < NumberOFColums; i++) {
+				cells[i]->initialize(cellWidth, cellHeight);
+			}
 		}
 		BoardController::~BoardController()
 		{

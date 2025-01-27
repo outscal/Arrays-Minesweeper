@@ -10,7 +10,6 @@ namespace Gameplay
 		class BoardController {
 		private:
 		
-			Cell::CellController* cell;
 			BoardView* boardView;
 			void CreateBoards();
 			void DeleteBoard();
@@ -18,9 +17,12 @@ namespace Gameplay
 			void resetBoard();
 
 		public:
+
+			
 			static const int NumberOfRows = 9;
 			static const int NumberOFColums = 9;
 			static const int NumberOFMines = 8;
+			Cell::CellController* cells[NumberOFColums];
 			BoardController();
 			void initialize();
 			void Update();

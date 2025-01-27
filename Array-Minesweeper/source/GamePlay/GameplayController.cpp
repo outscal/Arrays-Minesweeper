@@ -15,6 +15,7 @@ namespace Gameplay{
 	}
 	void GameplayController::reset()
 	{
+		ServiceLocator::getInstance()->getBoardService()->ResetBoard();
 	}
 	GameplayController::~GameplayController()
 	{
