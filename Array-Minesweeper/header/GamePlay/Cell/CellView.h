@@ -1,6 +1,7 @@
 #pragma once
 #include"../../header/UI/UIElement/ButtonView.h"
 #include"SFML/Graphics.hpp"
+#include"../../header/UI/UIElement/ImageView.h"
 namespace Gameplay
 {
 	namespace Cell
@@ -24,6 +25,8 @@ namespace Gameplay
 			void Render();
 			void SetTexture();
 			sf::Vector2f GetCellScreenPosition(float width, float height);
+			void RegisterCellButton();
+			void CellButtonCallBack(UI::UIElement::buttonType button);
 			~CellView();
 
 

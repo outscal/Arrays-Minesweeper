@@ -46,7 +46,7 @@ namespace UI
 
             if (clickedButton(&image_sprite, mouse_position))
             {
-                if (callback_function) callback_function();
+                if (callback_function) callback_function(buttonType::LeftMouseButton);
             }
         }
 

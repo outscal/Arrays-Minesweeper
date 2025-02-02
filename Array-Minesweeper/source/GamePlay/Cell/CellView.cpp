@@ -2,9 +2,11 @@
 #include"../../header/Global/Config.h"
 #include"../../header/GamePlay/Cell/CellController.h"
 #include"../../header/GamePlay/Cell/CellModel.h"
+#include<iostream>
 using namespace Global;
 using namespace UI::UIElement;
 using namespace sf;
+using namespace std;
 class  CellController;
 namespace Gameplay
 {
@@ -26,6 +28,7 @@ namespace Gameplay
 		void CellView::initializeButtonImage(float width, float height)
 
 		{
+			RegisterCellButton();
 			sf::Vector2f cell_screen_position = GetCellScreenPosition(width,height);
 			cellButton->initialize("Cell", Config::cells_texture_path, width * sliceCount, height,cell_screen_position);
 		}
@@ -62,6 +65,21 @@ namespace Gameplay
 			float xPosition = cellLeftOffset+cellIndex.y*width;
 			float yPosition = cellTopOffset+cellIndex.x*height;
 			return Vector2f(xPosition,yPosition);
+		}
+		void CellView::RegisterCellButton()
+		{
+			cellButton->registerCallbackFuntion(bind(&CellView::CellButtonCallBack, this, std::placeholders::_1));
+		}
+		void CellView::CellButtonCallBack(buttonType button)
+		{
+			switch (button) {
+			case::UI::UIElement::buttonType::LeftMouseButton:
+				cellController->OpenCell();
+				break;
+			case::UI::UIElement::buttonType::RightMouseButton:
+				cellController->FlagCell();
+				break;
+			}
 		}
 		CellView::~CellView()
 		{
