@@ -8,10 +8,12 @@ using namespace sf;
 class  CellController;
 namespace Gameplay
 {
-
+	using namespace sf;
 	namespace Cell
+
 		
 	{
+
 		CellView::CellView(CellController* Controller)
 		{
 			cellController = Controller;
@@ -56,8 +58,9 @@ namespace Gameplay
 		}
 		Vector2f CellView::GetCellScreenPosition(float width, float height)
 		{
-			float xPosition = cellLeftOffset+cellController->GetCellIndex()*width;
-			float yPosition = cellTopOffset;
+			Vector2i cellIndex = cellController->GetCellPosition();
+			float xPosition = cellLeftOffset+cellIndex.y*width;
+			float yPosition = cellTopOffset+cellIndex.x*height;
 			return Vector2f(xPosition,yPosition);
 		}
 		CellView::~CellView()

@@ -6,10 +6,12 @@ namespace Gameplay
 	namespace Cell
 	{
         using namespace sf;
-        CellModel::CellModel(int index)
+      
+        CellModel::CellModel(Vector2i Position)
         {
-            this->cellIndex = index;
+            this->cellposition = Position;
         }
+
         CellState CellModel::GetCellState()
         {
             return cellState;
@@ -28,20 +30,18 @@ namespace Gameplay
         }
         sf::Vector2i CellModel::GetPosition()
         {
-            return position;
+            return cellposition;
         }
         void CellModel::SetCellPosition(sf::Vector2i gridPosition)
         {
-            position = gridPosition;
+            cellposition = gridPosition;
         }
         void CellModel::reset()
         {
            cellState = CellState::HIDDEN;
            cellValue = CellValue::EMPTY;
         }
-        int CellModel::GetCellIndex()
-        {
-            return cellIndex;
-        }
+       
+       
     }
 }

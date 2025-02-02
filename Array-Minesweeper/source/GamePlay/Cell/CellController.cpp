@@ -6,15 +6,16 @@ namespace Gameplay
 {
 	namespace Cell
 	{
+		using namespace sf;
 		void CellController::destroy()
 		{
 			delete(cellView);
 			delete(cellModel);
 		}
-		CellController::CellController(int index)
+		CellController::CellController(Vector2i position)
 		{
 			cellView = new CellView(this);
-			cellModel = new CellModel(index);
+			cellModel = new CellModel(position);
 		}
 		CellController::~CellController()
 		{
@@ -49,9 +50,6 @@ namespace Gameplay
 		{
 			return cellModel->GetPosition();
 		}
-		int CellController::GetCellIndex()
-		{
-			return cellModel->GetCellIndex();
-		}
+		
 	}
 }
