@@ -22,4 +22,8 @@ namespace Gameplay
 	{
 		gameplayController->reset();
 	}
+	float  GameplayService::RemainingTime()
+	{
+		return gameplayController->GetRemainingTime();
+	}
 }

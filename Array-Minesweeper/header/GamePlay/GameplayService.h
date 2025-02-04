@@ -11,6 +11,7 @@ namespace Gameplay
 		void Update();
 		void Render();
 		void StartGame();
+		float RemainingTime();
 	};
 
 
