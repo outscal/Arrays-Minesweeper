@@ -170,6 +170,17 @@
     <ClInclude Include="header\UI\UIService.h" />
     <ClInclude Include="header\UI\Instructions\InstructionsScreenUIController.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\textures\board.png" />
+    <Image Include="assets\textures\cells.jpeg" />
+    <Image Include="assets\textures\instructions_button.png" />
+    <Image Include="assets\textures\menu_button.png" />
+    <Image Include="assets\textures\minesweeper_bg.png" />
+    <Image Include="assets\textures\outscal_logo.png" />
+    <Image Include="assets\textures\play_button.png" />
+    <Image Include="assets\textures\quit_button.png" />
+    <Image Include="assets\textures\restart_button.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
