@@ -17,7 +17,7 @@ namespace Global
 		event_service = nullptr;
 		sound_service = nullptr;
 		ui_service = nullptr;
-
+		board_service = nullptr;
 		createServices();
 	}
 
@@ -49,6 +49,7 @@ namespace Global
 
 		if (Main::GameService::getGameState() == Main::GameState::GAMEPLAY)
 		{
+
 			board_service->update();
 		}
 	}

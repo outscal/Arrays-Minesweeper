@@ -10,6 +10,9 @@ namespace Gameplay
 		
 		BoardController::BoardController()
 		{
+			board_model = new BoardModel();
+			board_view = new BoardView(this);
+			
 		}
 
 		BoardController::~BoardController()
@@ -19,14 +22,17 @@ namespace Gameplay
 
 		void BoardController::initialize()
 		{
+			board_view->initialize();
 		}
 
 		void BoardController::update()
 		{
+			board_view->update();
 		}
 
 		void BoardController::render()
 		{
+			board_view->render();
 		}
 
 		void BoardController::reset()

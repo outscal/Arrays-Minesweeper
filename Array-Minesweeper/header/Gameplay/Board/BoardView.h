@@ -1,5 +1,9 @@
 #pragma once
+#include <SFML/Graphics.hpp>;
+#include "../../header/UI/UIElement/ImageView.h"
 
+using namespace sf;
+using namespace UI::UIElement;
 
 namespace Gameplay
 {
@@ -10,7 +14,19 @@ namespace Gameplay
 		{
 		private:
 			BoardController* board_controller;
+			RenderWindow* game_window;
+			ImageView* background_image;
+			ImageView* board_image;
 
+			float background_image_alpha = 110.f;
+			float board_width = 900.f;
+			float board_height = 1080.f;
+
+			void initializeBackgroundImage();
+			void initializeBoardImage();
+			void createImages();
+			void updateImages();
+			void renderImages();
 			void destroy();
 
 		public:

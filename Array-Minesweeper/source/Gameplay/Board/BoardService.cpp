@@ -9,6 +9,7 @@ namespace Gameplay
 		
 		BoardService::BoardService()
 		{
+			board_controller = new BoardController();
 		}
 		BoardService::~BoardService()
 		{
