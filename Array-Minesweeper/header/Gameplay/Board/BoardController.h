@@ -25,6 +25,8 @@ namespace Gameplay
 			void update();
 			void render();
 
+			float getBoardWidth();
+			float getBoardHeight();
 			void reset();
 		};
 	}

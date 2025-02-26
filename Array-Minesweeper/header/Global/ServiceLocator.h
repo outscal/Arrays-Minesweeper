@@ -5,6 +5,7 @@
 #include "../../header/Sound/SoundService.h"
 #include "../../header/Gameplay/Board/BoardService.h"
 #include "../../header/Gameplay/GameplayService.h"
+#include "../../header/Gameplay/Cell/CellService.h"
 
 using namespace Event;
 using namespace Graphics;
@@ -12,6 +13,7 @@ using namespace Sound;
 using namespace UI;
 using namespace Gameplay;
 using namespace Gameplay::Board;
+using namespace Gameplay::Cell;
 
 namespace Global
 {
@@ -24,6 +26,7 @@ namespace Global
         UIService* ui_service;
         BoardService* board_service;
         GameplayService* gameplay_service;
+        CellService* cell_service;
 
         ServiceLocator();
         ~ServiceLocator();
@@ -44,6 +47,7 @@ namespace Global
         UIService* getUIService();
         BoardService* getBoardService();
         GameplayService* getGameplayService();
+        CellService* getCellService();
         void deleteServiceLocator();
     };
 }

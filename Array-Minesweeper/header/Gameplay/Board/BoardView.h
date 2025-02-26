@@ -39,6 +39,8 @@ namespace Gameplay
 
 			void updateImages();
 			void renderImages();
+			float getBoardWidth();
+			float getBoardHeight();
 		};
 	}
 }

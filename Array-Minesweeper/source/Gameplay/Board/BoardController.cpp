@@ -35,6 +35,16 @@ namespace Gameplay
 			board_view->render();
 		}
 
+		float BoardController::getBoardWidth()
+		{
+			return board_view->getBoardWidth();
+		}
+
+		float BoardController::getBoardHeight()
+		{
+			return board_view->getBoardHeight();
+		}
+
 		void BoardController::reset()
 		{
 			board_model->reset();

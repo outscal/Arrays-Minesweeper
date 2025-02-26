@@ -77,6 +77,16 @@ namespace Gameplay
 			board_image->render();
 		}
 
+		float BoardView::getBoardWidth()
+		{
+			return board_width;
+		}
+
+		float BoardView::getBoardHeight()
+		{
+			return board_height;
+		}
+
 		void BoardView::destroy()
 		{
 		}
