@@ -18,6 +18,7 @@ namespace Global
 		sound_service = nullptr;
 		ui_service = nullptr;
 		board_service = nullptr;
+		gameplay_service = nullptr;
 		createServices();
 	}
 
@@ -30,6 +31,7 @@ namespace Global
 		sound_service = new SoundService();
 		ui_service = new UIService();
 		board_service = new BoardService();
+		gameplay_service = new GameplayService();
 	}
 
 	void ServiceLocator::initialize()
@@ -49,19 +51,20 @@ namespace Global
 
 		if (Main::GameService::getGameState() == Main::GameState::GAMEPLAY)
 		{
-
 			board_service->update();
+			gameplay_service->update();
 		}
 	}
 
 	void ServiceLocator::render()
 	{
-		ui_service->render();
 		graphic_service->render();
 		if (Main::GameService::getGameState() == Main::GameState::GAMEPLAY)
 		{
+			gameplay_service->render();
 			board_service->render();
 		}
+		ui_service->render();
 	}
 
 	void ServiceLocator::clearAllServices()
@@ -88,6 +91,8 @@ namespace Global
 	UIService* ServiceLocator::getUIService() { return ui_service; }
 
 	BoardService* ServiceLocator::getBoardService() { return board_service; }
+
+	GameplayService* ServiceLocator::getGameplayService() { return gameplay_service; }
 
 	void ServiceLocator::deleteServiceLocator() { delete(this); }
 }

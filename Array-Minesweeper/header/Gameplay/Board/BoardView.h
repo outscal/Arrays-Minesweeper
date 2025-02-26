@@ -25,8 +25,6 @@ namespace Gameplay
 			void initializeBackgroundImage();
 			void initializeBoardImage();
 			void createImages();
-			void updateImages();
-			void renderImages();
 			void destroy();
 
 		public:
@@ -38,6 +36,9 @@ namespace Gameplay
 			void initialize();
 			void update();
 			void render();
+
+			void updateImages();
+			void renderImages();
 		};
 	}
 }
