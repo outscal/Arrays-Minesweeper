@@ -1,18 +1,19 @@
-#pragma once
+
 
 namespace Gameplay
 {
 	namespace Cell
 	{
 		class CellController;
+
 		class CellService
 		{
-		private:
+		private :
 			CellController* cell_controller;
 
 			void destroy();
 
-		public:
+		public :
 			CellService();
 			~CellService();
 

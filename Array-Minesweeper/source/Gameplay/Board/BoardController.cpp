@@ -12,6 +12,7 @@ namespace Gameplay
 		{
 			board_model = new BoardModel();
 			board_view = new BoardView(this);
+			createBoard();
 			
 		}
 
@@ -23,16 +24,20 @@ namespace Gameplay
 		void BoardController::initialize()
 		{
 			board_view->initialize();
+			cell_controller->initialize();
 		}
 
 		void BoardController::update()
 		{
 			board_view->update();
+			cell_controller->update();
 		}
 
 		void BoardController::render()
 		{
 			board_view->render();
+			cell_controller->render();
+			
 		}
 
 		float BoardController::getBoardWidth()
@@ -50,10 +55,16 @@ namespace Gameplay
 			board_model->reset();
 		}
 
+		void BoardController::createBoard()
+		{
+			cell_controller = new CellController();
+		}
+
 		void BoardController::destroy()
 		{
 			delete(board_model);
 			delete(board_view);
+			delete(cell_controller);
 		}
 	}
 }

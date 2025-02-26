@@ -1,15 +1,15 @@
-#pragma once
+#include "../../header/Gameplay/Cell/CellModel.h"
 
 namespace Gameplay
 {
 	namespace Cell
 	{
-		class CellModel;
 		class CellView;
+		class CellModel;
+
 		class CellController
 		{
 		private:
-
 			CellModel* cell_model;
 			CellView* cell_view;
 
@@ -23,7 +23,16 @@ namespace Gameplay
 			void update();
 			void render();
 
-			float GetCellSize();
+			void setCellValue(CellValue value);
+			CellValue getCellValue();
+
+			void setCellState(CellState state);
+			CellState getCellState();
+
+			void SetCellPosition(Vector2f position);
+			Vector2f getCellPosition();
+
+			void reset();
 		};
 	}
 }

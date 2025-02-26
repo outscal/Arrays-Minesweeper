@@ -1,17 +1,40 @@
-#pragma once
+#include <SFML/Graphics.hpp>
+
+using namespace sf;
 
 namespace Gameplay
 {
 	namespace Cell
 	{
+		enum class CellState
+		{
+			HIDDEN,
+			OPEN,
+			FLAGGED
+		};
+
+		enum class CellValue
+		{
+			EMPTY,
+			ONE,
+			TWO,
+			THREE,
+			FOUR,
+			FIVE,
+			SIX,
+			SEVEN,
+			EIGHT,
+			MINE
+		};
 
 		class CellModel
 		{
-		private :
-			float tile_size = 32.f;
+		private:
+			CellValue cell_value;
+			CellState cell_state;
+			Vector2f cell_position;
 
 			void destroy();
-			float CalculateCellSize();
 
 		public:
 			CellModel();
@@ -20,8 +43,18 @@ namespace Gameplay
 			void initialize();
 			void update();
 			void render();
+			void reset();
 
-			float getCellSize();
+			CellValue getCellValue();
+			void setCellValue(CellValue value);
+
+			CellState getCellState();
+			void setCellState(CellState state);
+
+			Vector2f getCellPosition();
+			void setCellPosition(Vector2f gridPosition);
+
 		};
+
 	}
 }

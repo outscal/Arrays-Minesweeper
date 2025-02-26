@@ -1,28 +1,25 @@
-#pragma once
 #include "../../header/UI/UIElement/ButtonView.h"
+
 using namespace UI::UIElement;
 
 namespace Gameplay
 {
 	namespace Cell
 	{
-
 		class CellController;
+
 		class CellView
 		{
-		private:
-
+		private :
 			CellController* cell_controller;
 			ButtonView* cell_button;
 
-			float cell_size =32*3;
 
+			float cell_size = 32;
+			int slice_count = 12;
 
-			void createCellButton();
-			void initializeCellButtons();
 			void destroy();
-			void SetCellSize();
-
+			
 		public:
 			CellView(CellController* controller);
 			~CellView();
@@ -31,7 +28,9 @@ namespace Gameplay
 			void update();
 			void render();
 
-			
+
+			void initializeCellButton();
+			void SetCellTexture();
 		};
 	}
 }

@@ -1,7 +1,4 @@
 #include "../../header/Gameplay/Cell/CellModel.h"
-#include "../../header/Global/ServiceLocator.h"
-#include "../../header/Gameplay/Board/BoardModel.h"
-using namespace Global;
 
 namespace Gameplay
 {
@@ -10,41 +7,52 @@ namespace Gameplay
 		
 		CellModel::CellModel()
 		{
-			tile_size = CalculateCellSize();
+			reset();
 		}
-
 		CellModel::~CellModel()
 		{
+			destroy();
 		}
-
 		void CellModel::initialize()
 		{
 		}
-
 		void CellModel::update()
 		{
 		}
-
 		void CellModel::render()
 		{
 		}
-
-		float CellModel::getCellSize()
+		void CellModel::reset()
 		{
-			return tile_size;
+			cell_value = CellValue::EMPTY;
+			cell_state = CellState::HIDDEN;
 		}
-
+		CellValue CellModel::getCellValue()
+		{
+			return cell_value;
+		}
+		void CellModel::setCellValue(CellValue value)
+		{
+			cell_value = value;
+		}
+		CellState CellModel::getCellState()
+		{
+			return cell_state;
+		}
+		void CellModel::setCellState(CellState state)
+		{
+			cell_state = state;
+		}
+		Vector2f CellModel::getCellPosition()
+		{
+			return cell_position;
+		}
+		void CellModel::setCellPosition(Vector2f gridPosition)
+		{
+			cell_position = gridPosition;
+		}
 		void CellModel::destroy()
 		{
-
 		}
-
-		float CellModel::CalculateCellSize()
-		{
-			float board_width = ServiceLocator::getInstance()->getBoardService()->getBoardWidth();
-			float cell_width = board_width / Board::BoardModel::number_of_columns;
-			return cell_width;
-		}
-
 	}
 }
