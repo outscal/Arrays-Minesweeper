@@ -1,5 +1,7 @@
 #include "../../header/UI/UIElement/ButtonView.h"
+#include <SFML/Graphics.hpp>
 
+using namespace sf;
 using namespace UI::UIElement;
 
 namespace Gameplay
@@ -14,9 +16,13 @@ namespace Gameplay
 			CellController* cell_controller;
 			ButtonView* cell_button;
 
-
-			float cell_size = 32;
+			float tile_size = 32;
+			float cell_width ;
+			float cell_height ;
 			int slice_count = 12;
+
+			float cell_top_offset = 274.f;
+			float cell_left_offset = 573.f;
 
 			void destroy();
 			
@@ -24,13 +30,16 @@ namespace Gameplay
 			CellView(CellController* controller);
 			~CellView();
 
-			void initialize();
+			void initialize(float width, float height);
 			void update();
 			void render();
 
 
-			void initializeCellButton();
+			void initializeCellButton(float width, float height);
 			void SetCellTexture();
+			Vector2f getCellPosition();
+
+
 		};
 	}
 }

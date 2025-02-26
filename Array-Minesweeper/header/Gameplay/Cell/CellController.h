@@ -19,7 +19,7 @@ namespace Gameplay
 			CellController();
 			~CellController();
 
-			void initialize();
+			void initialize(float width,float hight);
 			void update();
 			void render();
 
@@ -33,6 +33,9 @@ namespace Gameplay
 			Vector2f getCellPosition();
 
 			void reset();
+
+
 		};
+	
 	}
 }

@@ -2,6 +2,8 @@
 #include "../../header/Gameplay/Board/BoardController.h"
 #include "../../header/Global/Config.h"
 #include "../../header/Global/ServiceLocator.h"
+#include "../../header/Gameplay/Board/BoardModel.h"
+
 
 using namespace Global;
 
@@ -79,12 +81,16 @@ namespace Gameplay
 
 		float BoardView::getBoardWidth()
 		{
-			return board_width;
+			float width =  (board_width-board_width_offset)/static_cast<float>(BoardModel::number_of_columns);
+			return width;
 		}
+
 
 		float BoardView::getBoardHeight()
 		{
-			return board_height;
+			float height =  (board_height-board_height_offset)/static_cast<float>(BoardModel::number_of_rows);
+			
+			return height;
 		}
 
 		void BoardView::destroy()

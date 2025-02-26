@@ -5,7 +5,6 @@
 #include "../../header/Sound/SoundService.h"
 #include "../../header/Gameplay/Board/BoardService.h"
 #include "../../header/Gameplay/GameplayService.h"
-#include "../../header/Gameplay/Cell/CellService.h"
 
 using namespace Event;
 using namespace Graphics;

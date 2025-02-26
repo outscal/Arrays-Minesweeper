@@ -15,7 +15,7 @@ namespace Gameplay
 			BoardView* board_view;
 			BoardModel* board_model;
 			CellController* cell_controller;
-			
+
 			void createBoard();
 			void destroy();
 
@@ -29,9 +29,9 @@ namespace Gameplay
 			void update();
 			void render();
 
-			float getBoardWidth();
-			float getBoardHeight();
+
 			void reset();
+
 		};
 	}
 }

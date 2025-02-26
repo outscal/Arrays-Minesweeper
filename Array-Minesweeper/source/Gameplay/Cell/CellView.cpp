@@ -1,4 +1,3 @@
-#include <SFML/Graphics.hpp>
 
 #include "../../header/Gameplay/Cell/CellView.h"
 #include "../../header/Gameplay/Cell/CellController.h"
@@ -25,9 +24,9 @@ namespace Gameplay
 			destroy();
 		}
 
-		void CellView::initialize()
+		void CellView::initialize(float width,float height)
 		{
-			initializeCellButton();
+			initializeCellButton(width,height);
 		}
 
 		void CellView::update()
@@ -40,35 +39,45 @@ namespace Gameplay
 			cell_button->render();
 		}
 
-		void CellView::initializeCellButton()
+		void CellView::initializeCellButton(float width, float height)
 		{
+			cell_width = width;
+			cell_height = height;
+			cout << "\nWidth : " << width << endl;
+			cout << "\nHeight : " << height << endl;
 			SetCellTexture();
 			cell_button->initialize("CELL",
 				Config::cells_texture_path,
-				cell_size * slice_count,
-				cell_size ,
-				Vector2f(0, 0));
+				cell_width * slice_count,
+				cell_height,
+				getCellPosition());
 		}
 
 		void CellView::SetCellTexture()
 		{
 			int index = static_cast<int>(cell_controller->getCellValue());
-			cout << index << endl;
 			switch (cell_controller->getCellState())
 			{
 			case CellState::HIDDEN:
-				cell_button->setTextureRect(IntRect(10 * cell_size, 0, cell_size, cell_size));
+				cell_button->setTextureRect(IntRect(10 * tile_size, 0, tile_size, tile_size));
 				break;
 
 			case CellState::OPEN:
-				cell_button->setTextureRect(IntRect(index * cell_size, 0, cell_size, cell_size));
+				cell_button->setTextureRect(IntRect(index * tile_size, 0, tile_size, tile_size));
 				break;
 
 			case CellState::FLAGGED :
-				cell_button->setTextureRect(IntRect(11 * cell_size, 0, cell_size, cell_size));
+				cell_button->setTextureRect(IntRect(11 * tile_size, 0, tile_size, tile_size));
 				break;
 			}
 		}
+
+		Vector2f CellView::getCellPosition()
+		{
+			return Vector2f(cell_left_offset,cell_top_offset);
+		}
+
+		
 
 		void CellView::destroy()
 		{
