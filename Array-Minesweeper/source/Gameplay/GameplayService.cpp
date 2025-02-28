@@ -17,6 +17,7 @@ namespace Gameplay
 
     void GameplayService::initialize()
     {
+
         gameplay_controller->initialize();
     }
 
@@ -33,6 +34,11 @@ namespace Gameplay
     void GameplayService::startGame()
     {
         gameplay_controller->reset();
+    }
+
+    float GameplayService::getRemainingTime()
+    {
+        return gameplay_controller->getRemainingTime();
     }
 
     void Gameplay::GameplayService::destroy()
