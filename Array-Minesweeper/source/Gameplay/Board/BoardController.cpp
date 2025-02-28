@@ -45,25 +45,34 @@ namespace Gameplay
 
 		void BoardController::renderBoard()
 		{
-			for (int i = 0; i < number_of_columns; i++)
+			for (int i = 0; i < number_of_rows; i++)
 			{
-				cells[i]->render();
+				for (int j = 0; j < number_of_columns; j++)
+				{
+					cells[i][j]->render();
+				}
 			}
 		}
 
 		void BoardController::updateBoard()
 		{
-			for (int i = 0; i < number_of_columns; i++)
+			for (int i = 0; i < number_of_rows; i++)
 			{
-				cells[i]->update();
+				for (int j = 0; j < number_of_columns; j++)
+				{
+					cells[i][j]->update();
+				}
 			}
 		}
 
 		void BoardController::initializeBoard(float width, float height)
 		{
-			for (int i = 0; i < number_of_columns; i++)
+			for (int i = 0; i < number_of_rows; i++)
 			{
-				cells[i]->initialize(width,height);
+				for (int j = 0; j < number_of_columns; j++)
+				{
+					cells[i][j]->initialize(width,height);
+				}
 			}
 		}
 
@@ -73,9 +82,12 @@ namespace Gameplay
 		{
 			//board_model->reset();
 
-			for (int i = 0; i < number_of_columns; i++)
+			for (int i = 0; i < number_of_rows; i++)
 			{
-				cells[i]->reset();
+				for (int j = 0; j < number_of_columns; j++)
+				{
+					cells[i][j]->reset();
+				}
 			}
 
 		}
@@ -86,9 +98,12 @@ namespace Gameplay
 		{
 
 
-			for (int i = 0; i < number_of_columns; i++)
+			for (int i = 0; i < number_of_rows; i++)
 			{
-				cells[i] = new CellController(i);
+				for (int j = 0; j < number_of_columns; j++)
+				{
+					cells[i][j] =new CellController(i,j);
+				}
 			}
 		}
 

@@ -34,11 +34,12 @@ namespace Gameplay
 			CellState cell_state;
 			Vector2f cell_position;
 
-			int cell_index;
+			int cell_row_index;
+			int cell_col_index;
 			void destroy();
 
 		public:
-			CellModel(int index);
+			CellModel(int row_index,int col_index);
 			~CellModel();
 
 			void initialize();
@@ -54,7 +55,7 @@ namespace Gameplay
 
 			Vector2f getCellPosition();
 			void setCellPosition(Vector2f gridPosition);
-			int getCellIndex();
+			Vector2i getCellIndex();
 		};
 
 	}

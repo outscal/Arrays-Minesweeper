@@ -16,7 +16,7 @@ namespace Gameplay
 			void destroy();
 
 		public:
-			CellController(int index);
+			CellController(int row_index,int col_index);
 			~CellController();
 
 			void initialize(float width,float hight);
@@ -33,7 +33,7 @@ namespace Gameplay
 			Vector2f getCellPosition();
 
 			void reset();
-			int getCellIndex();
+			Vector2i getCellIndex();
 
 
 		};
