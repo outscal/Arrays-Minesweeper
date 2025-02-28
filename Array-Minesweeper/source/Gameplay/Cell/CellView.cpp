@@ -2,7 +2,7 @@
 #include "../../header/Gameplay/Cell/CellView.h"
 #include "../../header/Gameplay/Cell/CellController.h"
 #include "../../header/Global/Config.h"
-
+#include <functional>
 #include <iostream>
 using namespace std;
 
@@ -27,10 +27,12 @@ namespace Gameplay
 		void CellView::initialize(float width,float height)
 		{
 			initializeCellButton(width,height);
+			registerButtonCallback();
 		}
 
 		void CellView::update()
 		{
+			SetCellTexture();
 			cell_button->update();
 		}
 
@@ -76,6 +78,28 @@ namespace Gameplay
 			float yPosition = cell_top_offset+(height*cell_controller->getCellIndex().x);
 			return Vector2f(xPosition,yPosition);
 		}
+
+		void CellView::registerButtonCallback()
+		{
+			cell_button->registerCallbackFuntion(std::bind(&CellView::cellButtonCallback, this, std::placeholders::_1));
+		}
+
+		void CellView::cellButtonCallback(ButtonType button_type)
+		{
+			switch (button_type)
+			{
+			case ButtonType::LEFT_MOUSE_BUTTON:
+				cell_controller->openCell();
+				break;
+
+			case ButtonType::RIGHT_MOUSE_BUTTON:
+				cell_controller->flagCell();
+				break;
+			}
+		}
+
+		
+
 
 		
 

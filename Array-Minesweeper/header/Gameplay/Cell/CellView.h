@@ -39,6 +39,9 @@ namespace Gameplay
 			void SetCellTexture();
 			Vector2f getCellPosition(float width, float height);
 
+			void registerButtonCallback();
+
+			void cellButtonCallback(ButtonType button_type);
 
 		};
 	}

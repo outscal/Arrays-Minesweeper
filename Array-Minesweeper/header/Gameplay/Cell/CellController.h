@@ -1,4 +1,7 @@
 #include "../../header/Gameplay/Cell/CellModel.h"
+#include "../../header/UI/UIElement/ButtonView.h"
+
+using namespace UI::UIElement;
 
 namespace Gameplay
 {
@@ -35,7 +38,9 @@ namespace Gameplay
 			void reset();
 			Vector2i getCellIndex();
 
-
+			void openCell();
+			void flagCell();
+			
 		};
 	
 	}

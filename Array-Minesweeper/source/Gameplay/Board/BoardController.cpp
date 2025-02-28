@@ -109,9 +109,12 @@ namespace Gameplay
 
 		void BoardController::deleteBoard()
 		{
-			for (int i = 0; number_of_columns; i++)
+			for (int i = 0; i < number_of_rows; i++)
 			{
-				delete(cells[i]);
+				for (int j = 0; j < number_of_columns; j++)
+				{
+					delete(cells[i][j]);
+				}
 			}
 		}
 

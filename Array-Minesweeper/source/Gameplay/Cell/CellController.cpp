@@ -1,5 +1,8 @@
 #include "../../header/Gameplay/Cell/CellController.h"
 #include "../../header/Gameplay/Cell/CellView.h"
+#include "../../header/Global/ServiceLocator.h"
+
+using namespace Global;
 
 namespace Gameplay
 {
@@ -70,6 +73,30 @@ namespace Gameplay
 		{
 			return cell_model->getCellIndex();
 		}
+
+		void CellController::openCell()
+		{
+			if (cell_model->getCellState() != CellState::FLAGGED)
+			{
+				cell_model->setCellState(CellState::OPEN);
+				ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
+			}
+		}
+
+		void CellController::flagCell()
+		{
+			switch (cell_model->getCellState())
+			{
+			case CellState::FLAGGED:
+				setCellState(CellState::HIDDEN);
+				break;
+
+			case CellState::HIDDEN:
+				setCellState(CellState::FLAGGED);
+				break;
+			}
+		}
+
 
 		
 

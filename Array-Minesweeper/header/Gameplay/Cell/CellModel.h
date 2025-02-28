@@ -56,6 +56,7 @@ namespace Gameplay
 			Vector2f getCellPosition();
 			void setCellPosition(Vector2f gridPosition);
 			Vector2i getCellIndex();
+
 		};
 
 	}
