@@ -22,7 +22,7 @@ namespace Gameplay
 			float board_width = 900.f;
 			float board_height = 1080.f;
 
-			float board_width_offset = 115.f;
+			float board_width_offset = 128.f;
 			float board_height_offset = 329.f;
 
 			void initializeBackgroundImage();

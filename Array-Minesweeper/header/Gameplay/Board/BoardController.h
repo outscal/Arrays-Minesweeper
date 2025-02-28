@@ -12,11 +12,17 @@ namespace Gameplay
 		class BoardController
 		{
 		private:
+			int number_of_columns;
+			int number_of_rows;
+
 			BoardView* board_view;
 			BoardModel* board_model;
-			CellController* cell_controller;
+
+			CellController* cells[9];
 
 			void createBoard();
+			void deleteBoard();
+			void setCloumRowCount();
 			void destroy();
 
 		public:
@@ -28,6 +34,10 @@ namespace Gameplay
 			void initialize();
 			void update();
 			void render();
+
+			void renderBoard();
+			void updateBoard();
+			void initializeBoard(float width,float height);
 
 
 			void reset();

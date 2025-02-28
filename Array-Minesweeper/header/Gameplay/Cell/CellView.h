@@ -22,7 +22,7 @@ namespace Gameplay
 			int slice_count = 12;
 
 			float cell_top_offset = 274.f;
-			float cell_left_offset = 573.f;
+			float cell_left_offset = 574.f;
 
 			void destroy();
 			
@@ -37,7 +37,7 @@ namespace Gameplay
 
 			void initializeCellButton(float width, float height);
 			void SetCellTexture();
-			Vector2f getCellPosition();
+			Vector2f getCellPosition(float width, float height);
 
 
 		};

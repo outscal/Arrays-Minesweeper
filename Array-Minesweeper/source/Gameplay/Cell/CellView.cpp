@@ -43,14 +43,12 @@ namespace Gameplay
 		{
 			cell_width = width;
 			cell_height = height;
-			cout << "\nWidth : " << width << endl;
-			cout << "\nHeight : " << height << endl;
 			SetCellTexture();
 			cell_button->initialize("CELL",
 				Config::cells_texture_path,
 				cell_width * slice_count,
 				cell_height,
-				getCellPosition());
+				getCellPosition(cell_width,cell_height));
 		}
 
 		void CellView::SetCellTexture()
@@ -72,9 +70,11 @@ namespace Gameplay
 			}
 		}
 
-		Vector2f CellView::getCellPosition()
+		Vector2f CellView::getCellPosition(float width,float height)
 		{
-			return Vector2f(cell_left_offset,cell_top_offset);
+			float xPosition = cell_left_offset + (width * cell_controller->getCellIndex());
+			float yPosition = cell_top_offset;
+			return Vector2f(xPosition,yPosition);
 		}
 
 		

@@ -5,8 +5,9 @@ namespace Gameplay
 	namespace Cell
 	{
 		
-		CellModel::CellModel()
+		CellModel::CellModel(int index)
 		{
+			cell_index = index;
 			reset();
 		}
 		CellModel::~CellModel()
@@ -50,6 +51,10 @@ namespace Gameplay
 		void CellModel::setCellPosition(Vector2f gridPosition)
 		{
 			cell_position = gridPosition;
+		}
+		int CellModel::getCellIndex()
+		{
+			return cell_index;
 		}
 		void CellModel::destroy()
 		{
