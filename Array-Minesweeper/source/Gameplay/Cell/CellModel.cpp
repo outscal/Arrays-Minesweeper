@@ -55,7 +55,7 @@ namespace Gameplay
 		}
 		Vector2i CellModel::getCellIndex()
 		{
-			return Vector2i(cell_row_index,cell_col_index);
+			return Vector2i(cell_row_index, cell_col_index);
 		}
 		void CellModel::destroy()
 		{

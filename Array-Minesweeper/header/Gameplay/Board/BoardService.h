@@ -1,5 +1,8 @@
 #pragma once
 
+#include "../../header/Gameplay/Cell/CellController.h"
+
+using namespace Gameplay::Cell;
 
 namespace Gameplay
 {
@@ -7,6 +10,7 @@ namespace Gameplay
 	{
 
 		class BoardController;
+		
 		class BoardService
 		{
 		private:
@@ -26,6 +30,8 @@ namespace Gameplay
 
 			int getNumberOfMines();
 			void resetBoard();
+
+			void processCellInput(CellController* cell_controller, ButtonType button_type);
 		};
 	}
 }

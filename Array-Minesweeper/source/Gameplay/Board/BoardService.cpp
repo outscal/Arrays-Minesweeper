@@ -2,6 +2,7 @@
 #include "../../header/Gameplay/Board/BoardService.h"
 #include "../../header/Gameplay/Board/BoardController.h"
 
+
 namespace Gameplay
 {
 	namespace Board
@@ -41,7 +42,13 @@ namespace Gameplay
 		void BoardService::resetBoard()
 		{
 			board_controller->reset();
-			board_controller->reset();
+		}
+
+		void BoardService::processCellInput(Cell::CellController* cell_controller, ButtonType button_type)
+		{
+
+
+			board_controller->processCellInput(cell_controller, button_type);
 		}
 
 		void BoardService::destroy()

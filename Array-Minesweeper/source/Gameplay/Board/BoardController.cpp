@@ -1,7 +1,12 @@
 #include "../../header/Gameplay/Board/BoardController.h"
 #include "../../header/Gameplay/Board/BoardView.h"
 #include "../../header/Gameplay/Board/BoardModel.h"
+#include "../../header/Global/ServiceLocator.h"
 
+#include <iostream>
+using namespace std;
+
+using namespace Global;
 
 namespace Gameplay
 {
@@ -25,8 +30,8 @@ namespace Gameplay
 		void BoardController::initialize()
 		{
 			board_view->initialize();
-			float width = board_view->getBoardWidth();
-			float height = board_view->getBoardHeight();
+			float width = board_view->CalculateCellWidth();
+			float height = board_view->CalculateCellHeight();
 			initializeBoard(width, height);
 		}
 
@@ -80,12 +85,58 @@ namespace Gameplay
 
 		int BoardController::getMineCount()
 		{
-			return BoardModel::number_of_mines;
+			return number_of_mines>=0? number_of_mines:0;
+		}
+
+		void BoardController::openCell(Vector2i position)
+		{
+
+			if (cells[position.x][position.y]->canOpenCell())
+			{
+				cells[position.x][position.y]->openCell();
+			}
+		}
+
+		void BoardController::flagCell(Vector2i position)
+		{
+			switch (cells[position.x][position.y]->getCellState())
+			{
+			case CellState::FLAGGED:
+				ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
+				(number_of_mines<0)?number_of_mines=1:number_of_mines++;
+				break;
+			case CellState::HIDDEN:
+				ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
+				if (number_of_mines >= 0)
+				{
+
+					number_of_mines--;
+				}
+				break;
+			}
+			if (number_of_mines >= 0)
+			{
+				cells[position.x][position.y]->flagCell();
+			}
+		}
+
+
+		void BoardController::processCellInput(CellController* cell_controller, ButtonType button_type)
+		{
+			switch (button_type)
+			{
+			case ButtonType::LEFT_MOUSE_BUTTON:
+				openCell(cell_controller->getCellIndex());
+				break;
+
+			case ButtonType::RIGHT_MOUSE_BUTTON:
+				flagCell(cell_controller->getCellIndex());
+				break;
+			}
 		}
 
 		void BoardController::reset()
 		{
-			//board_model->reset();
 
 			for (int i = 0; i < number_of_rows; i++)
 			{
@@ -95,6 +146,7 @@ namespace Gameplay
 				}
 			}
 
+			number_of_mines = BoardModel::number_of_mines;
 		}
 
 		

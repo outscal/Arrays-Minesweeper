@@ -1,3 +1,5 @@
+#pragma once
+
 #include "../../header/Gameplay/Cell/CellModel.h"
 #include "../../header/UI/UIElement/ButtonView.h"
 
@@ -39,6 +41,7 @@ namespace Gameplay
 			Vector2i getCellIndex();
 
 			void openCell();
+			bool canOpenCell();
 			void flagCell();
 			
 		};

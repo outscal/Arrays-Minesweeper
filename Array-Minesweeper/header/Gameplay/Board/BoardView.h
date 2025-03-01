@@ -42,8 +42,8 @@ namespace Gameplay
 
 			void updateImages();
 			void renderImages();
-			float getBoardWidth();
-			float getBoardHeight();
+			float CalculateCellWidth();
+			float CalculateCellHeight();
 			
 		};
 	}

@@ -2,6 +2,7 @@
 #include "../../header/Gameplay/Cell/CellView.h"
 #include "../../header/Gameplay/Cell/CellController.h"
 #include "../../header/Global/Config.h"
+#include "../../header/Global/ServiceLocator.h"
 #include <functional>
 #include <iostream>
 using namespace std;
@@ -74,8 +75,8 @@ namespace Gameplay
 
 		Vector2f CellView::getCellPosition(float width,float height)
 		{
-			float xPosition = cell_left_offset + (width * cell_controller->getCellIndex().y);
-			float yPosition = cell_top_offset+(height*cell_controller->getCellIndex().x);
+			float xPosition = cell_left_offset + (width * cell_controller->getCellIndex().x);
+			float yPosition = cell_top_offset+(height*cell_controller->getCellIndex().y);
 			return Vector2f(xPosition,yPosition);
 		}
 
@@ -86,16 +87,7 @@ namespace Gameplay
 
 		void CellView::cellButtonCallback(ButtonType button_type)
 		{
-			switch (button_type)
-			{
-			case ButtonType::LEFT_MOUSE_BUTTON:
-				cell_controller->openCell();
-				break;
-
-			case ButtonType::RIGHT_MOUSE_BUTTON:
-				cell_controller->flagCell();
-				break;
-			}
+			ServiceLocator::getInstance()->getBoardService()->processCellInput(cell_controller,button_type);
 		}
 
 		
