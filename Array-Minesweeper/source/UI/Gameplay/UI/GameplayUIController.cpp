@@ -1,10 +1,14 @@
 #include "../../header/UI/Gameplay/UI/GameplayUIController.h"
 #include "../../header/Global/ServiceLocator.h"
+#include "../../header/Global/Config.h"
+
+
 #include <sstream>
 #include <iomanip>
 
 #include <iostream>
 using namespace std;
+using namespace UIElement;
 
 using namespace Global;
 
@@ -14,8 +18,8 @@ namespace Gameplay
 	{
 		GameplayUIController::GameplayUIController()
 		{
-			time_text = new TextView();
-			mine_text = new TextView();
+			createButton();
+			createTexts();
 		}
 		GameplayUIController::~GameplayUIController()
 		{
@@ -23,32 +27,50 @@ namespace Gameplay
 		}
 		void GameplayUIController::initialize()
 		{
+			initializeButton();
 			initializeTexts();
 		}
 		void GameplayUIController::update()
 		{
+			restart_button->update();
 			updateTimeText();
 			updateMineText();
 		}
 		void GameplayUIController::render()
 		{
+			restart_button->render();
 			time_text->render();
 			mine_text->render();
 		}
 		void GameplayUIController::show()
 		{
+			restart_button->show();
 			time_text->show();
 			mine_text->show();
 		}
 		void GameplayUIController::createTexts()
 		{
 			time_text = new TextView();
+			mine_text = new TextView();
 
+		}
+		void GameplayUIController::createButton()
+		{
+			restart_button = new ButtonView();
 		}
 		void GameplayUIController::initializeTexts()
 		{
 			initializeTimeText();
 			initializeMineText();
+		}
+		void GameplayUIController::initializeButton()
+		{
+			restart_button->initialize("Restart Button",
+				Config::restart_button_texture_path,
+				button_width,
+				button_height,
+				Vector2f(restart_button_left_offset,restart_button_top_offset));
+			registerButtonCallBack();
 		}
 		void GameplayUIController::initializeTimeText()
 		{
@@ -95,8 +117,20 @@ namespace Gameplay
 			mine_text->update();
 		}
 
+		void GameplayUIController::registerButtonCallBack()
+		{
+			restart_button->registerCallbackFuntion(std::bind(&GameplayUIController::restartButtonCallback, this));
+		}
+
+		void GameplayUIController::restartButtonCallback()
+		{
+			ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
+			ServiceLocator::getInstance()->getGameplayService()->startGame();
+		}
+
 		void GameplayUIController::destroy()
 		{
+			delete(restart_button);
 			delete(time_text);
 			delete(mine_text);
 		}

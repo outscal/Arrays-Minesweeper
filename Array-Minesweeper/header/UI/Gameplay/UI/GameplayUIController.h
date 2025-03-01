@@ -1,13 +1,13 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "../../header/UI/UIElement/TextView.h"
 #include "../../header/UI/Interface/IUIController.h"
-
+#include "../../header/UI/UIElement/TextView.h"
+#include "../../header/UI/UIElement/ButtonView.h"
 
 
 using namespace sf;
-using namespace UI::UIElement;
 using namespace UI;
+
 namespace Gameplay
 {
 	namespace GameplayUI
@@ -26,8 +26,19 @@ namespace Gameplay
 			const float mine_text_top_offset = 65.f;
 			const float mine_text_left_offset = 660.f;
 
-		TextView* time_text;
-		TextView* mine_text;
+			//restart button
+			const float restart_button_top_offset = 100.f;
+			const float restart_button_left_offset = 920.f;
+
+			const float button_height = 80.f;
+			const float button_width = 80.f;
+
+			const int tile_height = 32;
+
+			UIElement::TextView* time_text;
+			UIElement::TextView* mine_text;
+			UIElement::ButtonView* restart_button;
+
 
 		public:
 			GameplayUIController();
@@ -38,6 +49,8 @@ namespace Gameplay
 			 void show();
 
 			 void createTexts();
+			 void createButton();
+			 void initializeButton();
 			 void initializeTexts();
 			 void initializeTimeText();
 			 void initializeMineText();
@@ -45,6 +58,8 @@ namespace Gameplay
 			 void   updateTimeText();
 			 void updateMineText();
 
+			 void registerButtonCallBack();
+			 void restartButtonCallback();
 			 void destroy();
 
 		};
