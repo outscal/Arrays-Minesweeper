@@ -39,7 +39,7 @@ namespace Gameplay
 			void updateBoard();
 			void initializeBoard(float width,float height);
 
-
+			int getMineCount();
 			void reset();
 
 		};

@@ -33,6 +33,11 @@ namespace Gameplay
 
 		
 
+		int BoardService::getNumberOfMines()
+		{
+			return board_controller->getMineCount();
+		}
+
 		void BoardService::resetBoard()
 		{
 			board_controller->reset();

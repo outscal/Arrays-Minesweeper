@@ -78,6 +78,11 @@ namespace Gameplay
 
 		
 
+		int BoardController::getMineCount()
+		{
+			return BoardModel::number_of_mines;
+		}
+
 		void BoardController::reset()
 		{
 			//board_model->reset();

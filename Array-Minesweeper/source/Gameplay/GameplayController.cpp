@@ -42,6 +42,11 @@ namespace Gameplay
 		remaining_time = max_duration;
 	}
 
+	int GameplayController::getNumberOfMines()
+	{
+		return ServiceLocator::getInstance()->getBoardService()->getNumberOfMines();
+	}
+
 	void GameplayController::updateRemainingTime()
 	{
 		remaining_time -= ServiceLocator::getInstance()->getTimeService()->getDeltaTime(); 

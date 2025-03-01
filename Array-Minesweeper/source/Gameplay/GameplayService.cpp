@@ -36,6 +36,11 @@ namespace Gameplay
         gameplay_controller->reset();
     }
 
+    int GameplayService::getRemainingNumberOfMines()
+    {
+        return gameplay_controller->getNumberOfMines();
+    }
+
     float GameplayService::getRemainingTime()
     {
         return gameplay_controller->getRemainingTime();
